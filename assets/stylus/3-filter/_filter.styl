@@ -1,0 +1,44 @@
+.filter
+	font-size: 15px
+	display: block
+	margin: 10px auto
+	padding: 5px 7px
+	text-align: left
+	@media screen and (max-width: 749px)
+		text-align: center
+	&__title
+		font-size: 17px
+		letter-spacing: -1.5px
+	&__block
+		display: inline-block
+		&_button
+			display: block
+			margin: 5px 7px
+			padding: 7px 21px
+			text-decoration: none
+			text-align: center
+			background: #38BCC1
+			color: white
+			border-radius: 5px
+			position: relative
+			font-weight: 300
+			&:before, &:after
+				content: ''
+				display: block
+				height: 2px
+				background: white
+				left: 50%
+				right: 50%
+				position: absolute
+				top: 2%
+				right: 50%
+				bottom: 1%
+				left: 50%
+				transition: all .5s
+			&:before
+				bottom: auto
+				top: 92%
+			&:hover:after, &:hover:before
+				left: 1%
+				right: 1%
+

@@ -1,0 +1,75 @@
+.cards
+	position: relative
+	display: block
+	margin: 7px auto
+	width: 77vw
+	text-align: center
+	&__product
+		display: inline-block
+		width: 240px
+		height: auto
+		padding: 7px 10px
+		margin: 7px 13px
+		border: 1px solid gray
+		border-radius: 5px
+		box-shadow: 4px 5px 10px rgba(0, 0, 0, .35)
+		@media screen and (max-width: 360px)
+			margin: 7px 0
+		&_title
+			display: block
+			text-align: center
+			font-size: 23px
+			padding: 10px 0
+		&_img
+			width: 200px
+			height: 200px
+			margin: 0 auto
+		&_descr
+			text-align: left
+			padding: 15px 7px
+			font-size: 16px
+		&_button
+			text-decoration: none
+			text-align: center
+			background: #38BCC1
+			color: white
+			padding: 7px 21px
+			border-radius: 5px
+			position: relative
+			float: right
+			margin: 10px 0
+			font-weight: 300
+			&:before, &:after
+				content: ''
+				display: block
+				height: 2px
+				background: white
+				left: 50%
+				right: 50%
+				position: absolute
+				top: 2%
+				right: 50%
+				bottom: 1%
+				left: 50%
+				transition: all .5s
+			&:before
+				bottom: auto
+				top: 92%
+			&:hover:after, &:hover:before
+				left: 1%
+				right: 1%
+		&_property
+			display: block
+			position: relative
+			text-align: left
+			font-size: 13px
+
+.property
+	&__price, &__weight, &__color
+		display: inline-block
+		padding: 0px 5px
+		margin: 3px 0
+		font-weight: 300
+		& b
+			font-weight: 400
+

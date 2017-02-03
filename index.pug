@@ -1,0 +1,55 @@
+html
+	head
+		title @TT
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0")
+
+		link(rel="stylesheet" href="public/css/main.css")
+		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css")
+
+		//- script(src='assets/js/index.js')
+
+		script(src="https://unpkg.com/vue/dist/vue.js")
+
+	body
+		.main
+			.main__view
+				h1 Список товаров представлен ниже
+
+				.filter
+					span(class="filter__title") Отфильтровать по
+					-var filterButtons = [{name: 'price', title: 'Цене'}, {name: 'weight', title: 'Весу'}, {name: 'color', title: 'Цвету'}];
+						mixin showButton(button)
+							div(class="filter__block")
+								a(href="#" class="filter__block_button" title=button.name data-sort=button.name onclick="getTitle(this.title)")= button.title
+					for button in filterButtons
+						+showButton(button)
+				div(id="app")
+					| {{message}}
+
+				.cards
+					-var productList = [{title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: Math.floor(Math.random() * 3 ) + 1, color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 1}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 2}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 3}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 4}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 5}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 6}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 7}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 8}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 9}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 10}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 11}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 12}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 13}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 14},	{title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 15}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 16},	{title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 17}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 18}, {title: ['laptop', 'tablet', 'phone'][(Math.floor(Math.random() * 3 ) + 1) - 1], img: "http://loremflickr.com/200/200/", description: "Описание текущего продукта (", link: "#", price: (Math.floor(Math.random() * 10 ) + 1), weight: (Math.floor(Math.random() * 3 ) + 1), color: [{color: 'white', text: 'Белый'}, {color: 'black', text: 'Черный'}, {color: 'gray', text: 'Серый'}, {color: 'pink', text: 'Розовый'}][(Math.floor(Math.random() * 4 ) + 1) - 1], order: 19}];
+						mixin drawCard(card)
+							-var randomImg = Math.floor(Math.random() * 7 ) + 1;
+							.cards__product(data-price=card.price, data-weight=card.weight, data-color=card.color.color, data-order=card.order)
+								.cards__product_title
+									span= card.title.toUpperCase()
+								.cards__product_img
+									img(src='public/img/' + card.title + '.jpg')
+								.cards__product_descr
+									span= card.description + card.title + ')'
+								.cards__product_property
+									.property__price
+										span= 'Цена - ' + card.price + ' 000 ₽'
+									.property__weight
+										span= 'Вес - ' + card.weight + 'кг'
+									.property__color
+										span= 'Цвет - ' + card.color.text
+								a(href=card.link class="cards__product_button") Подробнее
+
+					for product in productList
+						+drawCard(product)
+
+
+		script(src='assets/js/app.js')
+

@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>@TT</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"/>
+		<link rel="stylesheet" href="public/css/main.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="main__view">
+				<h1>Список товаров представлен ниже</h1>
+
+				<div v-show="loading" class="loader">
+					<img class="loader__spinner" src="public/img/default.gif" />
+				</div>
+
+
+				<div class="cards">
+					<div class="filter">
+						<span class="filter__title">Отфильтровать по</span>
+						<div class="filter__block">
+							<a class="filter__block_button" href="#" :title="btns.name" v-on:click="sortContent">{{btns.title}}</a>
+						</div>
+					</div>
+					<div class="cards__product" v-for="(product, index) in products">
+						<div class="cards__product_title">
+							<span>{{product.title}} - {{index}}</span>
+						</div>
+						<div class="cards__product_img">
+							<img :src="product.img" />
+						</div>
+						<div class="cards__product_descr">
+							<span>Описание текущего продукта ({{product.title}})</span>
+						</div>
+						<div class="cards__product_property">
+							<div class="property__price">
+								<span>Цена - <b>{{product.price.toLocaleString()}} ₽</b></span>
+							</div>
+							<div class="property__weight">
+								<span>Вес - <b>{{product.weight}}кг</b></span>
+							</div>
+							<div class="property__color">
+								<span>Цвет - <b>{{product.color.text}}</b></span>
+							</div>
+						</div>
+						<a class="cards__product_button" href="#">Подробнее</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="public/js/index.js"></script>
+	</body>
+</html>
